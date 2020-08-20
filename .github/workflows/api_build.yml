@@ -22,15 +22,7 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
-        SQL_DBNAME: ${{ secrets.SQL_DBNAME }}
-        SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
-        SQL_SERVER: ${{ secrets.SQL_SERVER }}
-        SQL_USER: ${{ secrets.SQL_USER }}
-      env: # Or as an environment variable
-          SQL_DBNAME: ${{ secrets.SQL_DBNAME }}
-          SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
-          SQL_SERVER: ${{ secrets.SQL_SERVER }}
-          SQL_USER: ${{ secrets.SQL_USER }}        
+       
     - name: Install dependencies
       run: dotnet restore
       working-directory: ./apis/poi
@@ -38,5 +30,10 @@ jobs:
       run: dotnet build --configuration Release --no-restore
       working-directory: ./apis/poi
     - name: Test
+      env:
+        SQL_DBNAME: ${{ secrets.SQL_DBNAME }}
+        SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
+        SQL_SERVER: ${{ secrets.SQL_SERVER }}
+        SQL_USER: ${{ secrets.SQL_USER }}
       run: dotnet test --no-restore --verbosity normal
       working-directory: ./apis/poi
