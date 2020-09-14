@@ -1,6 +1,6 @@
 name: Trips
+
 env:
-  poi_path: apis/poi/**
   registry: docker.pkg.github.com
   repository: hattan/openhack-devops-team-gh/api-poi
   docker_path: apis/trips
