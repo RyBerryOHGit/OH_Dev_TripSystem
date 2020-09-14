@@ -10,7 +10,7 @@ env:
   docker_path: apis/user-java
   staging_url: https://openhack9312nzp0userjava-staging.azurewebsites.net/
   prod_url: https://openhack9312nzp0userjava.azurewebsites.net/
-  resource_group: openhackxv61mxh2rg
+  resource_group: openhack9312nzp0rg
   webapp_name: openhack9312nzp0userjava
   build_name: User Java
   webv_path: apis/user-java/webvalidate
