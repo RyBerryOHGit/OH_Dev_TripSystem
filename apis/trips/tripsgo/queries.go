@@ -28,10 +28,8 @@ func SelectTripByIDQuery(tripID string) string {
 		AND Deleted = 0`
 }
 
-var SelectAllTripsQuery = selectAllTripsQuery
-
 // SelectAllTripsQuery - select all trips
-func selectAllTripsQuery() string {
+func SelectAllTripsQuery() string {
 	return `SELECT
 	Id,
 	Name,
@@ -53,9 +51,7 @@ func selectAllTripsQuery() string {
 }
 
 // SelectAllTripsForUserQuery REQUIRED userID
-var SelectAllTripsForUserQuery = selectAllTripsForUserQuery
-
-func selectAllTripsForUserQuery(userID string) string {
+func SelectAllTripsForUserQuery(userID string) string {
 	return `SELECT
 	Id,
 	Name,
@@ -69,7 +65,7 @@ func selectAllTripsForUserQuery(userID string) string {
 	FuelUsed,
 	HardStops,
 	HardAccelerations,
-	Distance,
+	Distance
 	CreatedAt,
 	UpdatedAt
 	FROM Trips

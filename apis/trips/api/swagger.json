@@ -2,10 +2,13 @@
   "swagger": "2.0",
   "info": {
     "version": "0.0.1",
-    "title": "MyDriving Trips API",
-    "description": "API for the user in the My Driving example app. https://github.com/Azure-Samples/openhack-devops-team"
+    "title": "MyDriving Trips API"
   },
   "basePath": "/api",
+  "schemes": [
+    "http",
+    "https"
+  ],
   "consumes": [
     "application/json"
   ],
