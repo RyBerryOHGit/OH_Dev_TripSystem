@@ -6,6 +6,9 @@
         "title": "My Driving User Profile API"
     },
     "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
     "consumes": [
         "application/json"
     ],
@@ -27,33 +30,12 @@
                     "default": {
                         "description": "An error occurred",
                         "schema": {
-                            "$ref": "#/definitions/DefaultResponse"
-                        }
-                    }
-                },
-                "tags": [ "User Profile" ]
-            }
-        },
-        "/version/user": {
-            "x-swagger-router-controller": "version",
-            "get": {
-                "description": "Returns APP_VERSION environment variable to ensure API is running with a specific version",
-                "responses": {
-                    "200": {
-                        "description": "Build Version",
-                        "schema": {
-                            "$ref": "#/definitions/Version"
-                        }
-                    },
-                    "default": {
-                        "description": "An error occurred",
-                        "schema": {
                             "$ref": "#/definitions/error_response_default"
                         }
                     }
                 }
             }
-        },          
+        },
         "/user": {
             "get": {
                 "description": "List all user profiles",
@@ -72,12 +54,11 @@
                     "default": {
                         "description": "An error occurred",
                         "schema": {
-                            "$ref": "#/definitions/DefaultResponse"
+                            "$ref": "#/definitions/inline_response_default"
                         }
                     }
                 },
-                "x-swagger-router-controller": "user",
-                "tags": [ "User Profile" ]
+                "x-swagger-router-controller": "user"
             }
         },
         "/user/{userID}": {
@@ -106,12 +87,11 @@
                     "default": {
                         "description": "An error occurred",
                         "schema": {
-                            "$ref": "#/definitions/DefaultResponse"
+                            "$ref": "#/definitions/inline_response_default"
                         }
                     }
                 },
-                "x-swagger-router-controller": "user",
-                "tags": [ "User Profile" ]
+                "x-swagger-router-controller": "user"
             },
             "post": {
                 "description": "Declares and creates a new profile",
@@ -142,12 +122,11 @@
                     "default": {
                         "description": "An error occurred",
                         "schema": {
-                            "$ref": "#/definitions/DefaultResponse"
+                            "$ref": "#/definitions/inline_response_default"
                         }
                     }
                 },
-                "x-swagger-router-controller": "user",
-                "tags": [ "User Profile" ]
+                "x-swagger-router-controller": "user"
             },
             "patch": {
                 "description": "Update User",
@@ -165,11 +144,10 @@
                     "default": {
                         "description": "Unknown Error",
                         "schema": {
-                            "$ref": "#/definitions/DefaultResponse"
+                            "$ref": "#/definitions/error_response_default"
                         }
                     }
-                },
-                "tags": [ "User Profile" ]
+                }
             },
             "delete": {
                 "description": "Delete User By ID",
@@ -184,11 +162,10 @@
                     "default": {
                         "description": "Unknown Error",
                         "schema": {
-                            "$ref": "#/definitions/DefaultResponse"
+                            "$ref": "#/definitions/error_response_default"
                         }
                     }
-                },
-                "tags": [ "User Profile" ]
+                }
             }
         }
     },
@@ -206,9 +183,6 @@
                 }
             }
         },
-        "Version": {
-            "type": "string"
-        },            
         "Profile": {
             "type": "object",
             "properties": {
@@ -294,19 +268,34 @@
                 }
             }
         },
-        "DefaultResponse": {
-          "type": "object",
-          "properties": {
-              "status": {
-                  "description": "Error code (if available)",
-                  "type": "integer",
-                  "format": "int32"
-              },
-              "message": {
-                  "description": "Error Message",
-                  "type": "string"
-              }
-          }
-      }
+        "error_response_default": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "description": "Error code (if available)",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "description": "Error Message",
+                    "type": "string"
+                }
+            }
+        },
+        "inline_response_default": {
+            "required": [
+                "message",
+                "status"
+            ],
+            "properties": {
+                "status": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
     }
 }
