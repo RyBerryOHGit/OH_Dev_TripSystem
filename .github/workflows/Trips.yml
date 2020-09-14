@@ -4,10 +4,10 @@ env:
   registry: docker.pkg.github.com
   repository: hattan/openhack-devops-team-gh/api-poi
   docker_path: apis/trips
-  staging_url: https://openhack9312nzp0trips-staging.azurewebsites.net
-  prod_url: https://openhack9312nzp0trips.azurewebsites.net
+  staging_url: https://openhack9312nzp0trips-staging.azurewebsites.net/
+  prod_url: https://openhack9312nzp0trips.azurewebsites.net/
   resource_group: openhack9312nzp0rg
-  webapp_name: openhackxv61mxh2trips
+  webapp_name: openhack9312nzp0trips
   build_name: Trips
   webv_path: apis/trips/webvalidate
 
