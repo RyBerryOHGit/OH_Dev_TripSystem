@@ -14,12 +14,12 @@ env:
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     paths: 
       - apis/trips/**  
       - .github/workflows/Trips.yml
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
     paths: 
       - apis/trips/**
       - .github/workflows/Trips.yml
