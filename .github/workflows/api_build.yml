@@ -2,8 +2,8 @@ name: .NET Core
 
 env:
   poi_path: apis/poi/**
-  registry: docker.pkg.github.com
-  repository: hattan/openhack-devops-team-gh/api-poi
+  registry: openhack9312nzp0acr.azurecr.io
+  repository: devopsoh/api-poi
   docker_path: apis/poi/web
   staging_url: https://openhack9312nzp0poi-staging.azurewebsites.net
   prod_url: https://openhack9312nzp0poi.azurewebsites.net
