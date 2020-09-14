@@ -1,31 +1,27 @@
-# This workflow will build a Java project with Maven
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
-
-name: User Java
-
+name: User Profile
 
 env:
   registry: docker.pkg.github.com
-  repository: hattan/openhack-devops-team-gh/api-user-java
-  docker_path: apis/user-java
-  staging_url: https://openhack9312nzp0userjava-staging.azurewebsites.net/
-  prod_url: https://openhack9312nzp0userjava.azurewebsites.net/
+  repository: hattan/openhack-devops-team-gh/api-user
+  docker_path: apis/userprofile
+  staging_url: https://openhack9312nzp0userprofile-staging.azurewebsites.net/
+  prod_url: https://openhack9312nzp0userprofile.azurewebsites.net/
   resource_group: openhack9312nzp0rg
-  webapp_name: openhack9312nzp0userjava
-  build_name: User Java
-  webv_path: apis/user-java/webvalidate
+  webapp_name: openhack9312nzp0userprofile
+  build_name: User Profile
+  webv_path: apis/userprofile/webvalidate
 
 on:
   push:
     branches: [ main ]
     paths: 
-      - apis/user-java/**  
-      - .github/workflows/user-java.yml
+      - apis/userprofile/**  
+      - .github/workflows/userprof.yml
   pull_request:
     branches: [ main ]
     paths: 
-      - apis/user-java/**
-      - .github/workflows/user-java.yml
+      - apis/userprofile/**
+      - .github/workflows/userprof.yml
 
 jobs:
   build_and_test:
@@ -33,17 +29,17 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: apis/user-java    
+        working-directory: apis/userprofile    
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up JDK 11
-      uses: actions/setup-java@v1
+    - name: Use Node.js 10.x
+      uses: actions/setup-node@v1
       with:
-        java-version: 11
-
-    - name: Run Unit Tests
-      run: mvn test
+        node-version: 10.x
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm run test
 
     - uses: actions/github-script@0.9.0
       if: failure()
