@@ -17,12 +17,12 @@ on:
     branches: [ master ]
     paths: 
       - apis/trips/**  
-      - .github/workflows/trips.yml
+      - .github/workflows/Trips.yml
   pull_request:
     branches: [ master ]
     paths: 
       - apis/trips/**
-      - .github/workflows/trips.yml
+      - .github/workflows/Trips.yml
 
 jobs:
   build_and_test:
