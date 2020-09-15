@@ -74,7 +74,7 @@ jobs:
     - name: Docker Push
       run: docker push $registry/$repository:${{github.run_number}}  
   
-    - name: 'Deploy to Azure User WebApp'
+    - name: 'Deploy to Azure User Java App'
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.webapp_name }}
