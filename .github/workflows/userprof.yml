@@ -2,12 +2,13 @@ name: User Profile
 
 env:
   registry: openhack9312nzp0acr.azurecr.io
-  docker_path: devopsoh/userprofile
+  docker_path: apis/userprofile
   staging_url: https://openhack9312nzp0userprofile-staging.azurewebsites.net/
   prod_url: https://openhack9312nzp0userprofile.azurewebsites.net/
   resource_group: openhack9312nzp0rg
   webapp_name: openhack9312nzp0userprofile
   build_name: User Profile
+  repository: devopsoh/user-profile
   webv_path: apis/userprofile/webvalidate
 
 on:
